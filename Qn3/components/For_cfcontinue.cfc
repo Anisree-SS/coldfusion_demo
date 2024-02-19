@@ -1,15 +1,14 @@
 <cfcomponent>
-    <cffunction name="forContinue" access="public" returnType="string" output="true">        
-        <cfargument name="arrayNumber"  required="true">
-        <cfset result=[]>
-        <cfset arrayNumber=listToArray(argumenet.arrayNumber)>
-        <cfloop>
-            <cfif argumenet.arrayNumber mod 3 neq 0>
+    <cffunction name="forContinue" access="public" returnType="string" output="false">        
+        <cfargument name="arrayNumber" required="true">
+        <cfset var result = []>
+        <cfset var localArrayNumber = listToArray(arguments.arrayNumber)>
+        <cfloop index="i" from="1" to="#arrayLen(localArrayNumber)#">
+            <cfif localArrayNumber[i] mod 3 neq 0>
                 <cfcontinue>
-            <cfelse>
-                <cfset arrayAppend(result,argumenet.arrayNumber)>                
             </cfif>
+            <cfset arrayAppend(result, localArrayNumber[i])>                
         </cfloop>
-        <cfreturn left(result,len(result)-1)>
+        <cfreturn arrayToList(result)>
     </cffunction>
 </cfcomponent>
