@@ -19,12 +19,16 @@
     <cfif structKeyExists(form, "submit")>
         <cfset dateObj=createObject("component","components/ForDateFormate")>
         <cfset yr=dateObj.forClrDate()>
-        <cfset month=dateObj.forClrDate()>
-        <cfset monthNum=dateObj.forClrDate()>
-        <cfset yr=dateObj.forClrDate()>
-        <cfset yr=dateObj.forClrDate()>
+        <cfset lastFriday=dateObj.forLastFriday()>
+        <cfset monthNumber=dateObj.forMonth()>
+        <cfset lastDay=dateObj.forLastDay()>
+        <cfset LastWednesday=dateObj.forLastWednesday()>
         <cfoutput>
             <p>#dateObj.forClrDate(yr)#</p>
+            <p>#dateObj.forMonth(monthNumber)#</p>
+            <p>#dateObj.forLastFriday(lastFriday)#</p>
+            <p>#dateObj.forLastDay(lastDay)#</p>
+            <p>#dateObj.forLastWednesday(LastWednesday)#</p>
         </cfoutput>
     </cfif>
 </body>
