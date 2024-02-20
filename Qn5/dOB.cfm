@@ -22,16 +22,16 @@
         </form>
     </div>
     <cfif structKeyExists(form,"submit")>
-        <cfset dateObj=createObject("component","components/forDOB")>
+        <cfset dateObj=createObject("component","components.forDOB")>
         <cfset forAge=dateObj.findUserAge(form.userDob)>
         <cfset remainingDateU=dateObj.remainingDateUser(form.userDob)>
-        <cfset remainingDateM=dateObj.remainingDateMother(form.userDob)>
-        <cfset forMotherAge=dateObj.findMotherAge(form.motherDob)>
+        <cfset remainingDateM=dateObj.remainingDateMother(form.motherDob)>
+        <cfset forMotherAge=dateObj.findMotherAge(form.motherDob,form.userDob)>
         <cfoutput>
-            <p>#dateObj.findUserAge(forAge)#</p>
-            <p>#dateObj.findMotherAge(forMotherAge)#</p>
-            <p>days remaining for user#dateObj.remainingDateUser(remainingDateU)#</p>
-            <p>days remaining for mother#dateObj.remainingDateMother(remainingDateM)#</p>
+            <p>User's Age: #forAge#</p>
+            <p>Age at which mother delivered the user: #forMotherAge#</p>
+            <p>Days remaining for mother's birthday: #remainingDateU#</p>
+            <p>Days remaining for user's   birthday: #remainingDateM#</p>
         </cfoutput>
     </cfif>
 </body>
