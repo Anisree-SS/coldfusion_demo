@@ -8,11 +8,13 @@
 </head>
 <body>
    <h6>
-    Create a web page that will have two text boxes and a submit button. When submitted, the page will post to self.
-Create a structure in ColdFusion with the values from the text box. The text entered in textbox one is the key, and the text entered in textbox 2 is the value. Each time you submit the form, the values entered previously should also be shown. 
-It means, if I submit a form with 'ColdFusion', 'super', then I should see a dump with the key as 'ColdFusion' & value as 'Super'.
-Now, If I enter 'php', 'good', then I should see both ColdFusion, php on the screen along with their values.
-CFDUMP the structure.	
+   Create a web page that will have two text boxes and a submit button. When submitted, the page will post to self.
+Create a structure in ColdFusion with the values from the text box. The text entered in text box one is the key, and the text entered in text box 2 is the value. Each time you submit the form, the values entered previously should also maintained in the structure.
+It means, if I submit a form with 'ColdFusion', 'super', then structure should have key as 'ColdFusion' & value as 'Super'.
+Now, If I enter 'php', 'good', then structure should have both ColdFusion, php along with their values.
+CFDUMP the structure. 
+This is different from CF_Struct_3 task. If I enter ColdFusion and ColdFusion is already present, then the system should say, 'ColdFusion already present. Cannot add again'
+
    </h6>
    <div>
         <form action="structSnd.cfm" method="post">
@@ -24,7 +26,7 @@ CFDUMP the structure.
         </form>
    </div>
    <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
-        <cfinvoke component="Component/7_CF_Struct_2" method="methodkeyandvalue" returnvariable="keyandvalue">
+        <cfinvoke component="Component/forStructForth" method="methodkeyandvalue" returnvariable="keyandvalue">
             <cfinvokeargument name="key" value="#form.key#">
             <cfinvokeargument name="value" value="#form.value#">
         </cfinvoke>
