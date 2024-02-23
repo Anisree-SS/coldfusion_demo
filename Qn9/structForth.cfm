@@ -1,3 +1,4 @@
+<cfapplication name="MyApplication" sessionmanagement="yes">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,16 +18,16 @@ This is different from CF_Struct_3 task. If I enter ColdFusion and ColdFusion is
 
    </h6>
    <div>
-        <form action="structSnd.cfm" method="post">
+        <form action="structForth.cfm" method="post">
             <label for="key">Enter Key:</label>
             <input type="text" id="key" name="key" required>  <br>
-            <label for="value">Enter Key:</label>
+            <label for="value">Enter value:</label>
             <input type="text" id="value" name="value" required>  <br>     
             <input type="submit" value="submit" name="submit">
         </form>
    </div>
    <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
-        <cfinvoke component="Component/forStructForth" method="methodkeyandvalue" returnvariable="keyandvalue">
+        <cfinvoke component="components/forStructForth" method="forStructForthFunction" returnvariable="keyandvalue">
             <cfinvokeargument name="key" value="#form.key#">
             <cfinvokeargument name="value" value="#form.value#">
         </cfinvoke>

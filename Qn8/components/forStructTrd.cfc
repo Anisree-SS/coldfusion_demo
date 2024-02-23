@@ -1,11 +1,11 @@
+
 <cfcomponent>
-    <cffunction name="structureSnd" access="public" returntype="any" output="true">
-         <cfargument name="key">
-     	 <cfargument name="value">	
-      	<cfset Values = structInsert(session.struct2 ,"#arguments.key#", "#arguments.value#")>
-      	<cfset local.result = "#session.struct2#">
-      	<cfreturn result>
-  
+    <cffunction name="forStructTrdFunction" access="public" >
+        <cfargument name="key" type="string" required="true">
+        <cfargument name="value" type="string" required="true">
+        <cfif not structKeyExists(session, "myStructure")>
+            <cfset session.myStructure = structNew()>
+        </cfif>
+        <cfset session.myStructure[arguments.key] = arguments.value>
     </cffunction>
 </cfcomponent>
-        

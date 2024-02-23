@@ -1,3 +1,4 @@
+<cfapplication name="MyApplication" sessionmanagement="yes">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,16 +18,16 @@ In this task, you should show the keys in alphabetical order.
 
    </h6>
    <div>
-        <form action="structSnd.cfm" method="post">
+        <form action="structFifth.cfm" method="post">
             <label for="key">Enter Key:</label>
             <input type="text" id="key" name="key" required>  <br>
-            <label for="value">Enter Key:</label>
+            <label for="value">Enter value:</label>
             <input type="text" id="value" name="value" required>  <br>     
             <input type="submit" value="submit" name="submit">
         </form>
    </div>
    <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
-            <cfinvoke component="Component/10_CF_Struct_5" method="methodkeyandvalue" returnvariable="keyandvalue">
+            <cfinvoke component="components/forStructFifth" method="forFfthStruct" returnvariable="keyandvalue">
                 <cfinvokeargument name="key" value="#form.key#">
                 <cfinvokeargument name="value" value="#form.value#">
             </cfinvoke>

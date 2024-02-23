@@ -1,3 +1,4 @@
+<cfapplication name="MyApplication" sessionmanagement="yes">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@ CFDUMP the structure.
         </form>
    </div>
    <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
-        <cfinvoke component="Component/7_CF_Struct_2" method="methodkeyandvalue" returnvariable="keyandvalue">
+        <cfinvoke component="components/forStructSnd" method="structSndFuntion" returnvariable="keyandvalue">
             <cfinvokeargument name="key" value="#form.key#">
             <cfinvokeargument name="value" value="#form.value#">
         </cfinvoke>

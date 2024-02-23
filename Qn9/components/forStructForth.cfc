@@ -1,17 +1,26 @@
+
 <cfcomponent>
-    <cffunction name="structureSnd" access="public" returntype="any" output="true">
-        <cfargument name="key">
-        <cfargument name="value">
-        <cfif StructKeyExists(session.struct4, #arguments.key#) AND session.struct4[#arguments.key#] NEQ #arguments.value#>
- 	        <cfset result[#arguments.key#]="This key is already exist">
-        <cfelseif StructKeyExists(session.struct4, #arguments.key#)>
-    	    <cfset result[#arguments.key#]="This key value pair already exist">
-        <cfelse>
-            <cfset Values=structInsert(session.struct4 ,"#arguments.key#", "#arguments.value#")>
-           	<cfset local.result="#session.struct4#">
+    <cffunction name="forStructForthFunction" access="public">
+        <cfargument name="key" type="string" required="true">
+        <cfargument name="value" type="string" required="true">
+        <cfif not structKeyExists(session, "structForth")>
+            <cfset session.structForth = structNew()>
         </cfif>
+        <cfset result = structNew()>
+        <cfif StructKeyExists(session.structForth, arguments.key)>
+            
+            <cfif session.structForth[arguments.key] eq arguments.value>
+               
+                <cfset result[arguments.key] = "This key-value pair already exists">
+            <cfelse>
+               
+                <cfset result[arguments.key] = "This key already exists with a different value">
+            </cfif>
+        <cfelse>
+            <cfset structInsert(session.structForth, arguments.key, arguments.value)>
+            <cfset result[arguments.key] = "Key-value pair added successfully">
+        </cfif>
+        
         <cfreturn result>
-  
     </cffunction>
 </cfcomponent>
-        
