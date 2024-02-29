@@ -1,4 +1,4 @@
-<cfapplication name="MyApplication" sessionmanagement="yes">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
         Greeting images should be in attachment along with mail.
     </h6>
     <div>
-        <form action="qn21.cfm" method="post">
+        <form action="qn21.cfm" method="post" enctype="multipart/form-data">
             <span>Birthday Baby Name</span>
             <input type="text" name="fname" required>
             <br>
@@ -39,7 +39,10 @@
     </div>
     <cfif StructKeyExists(form, "submit")>
         <cfset demoObj=createObject("component","components/forQn21")>
-        <cfset x=demoObj.send(form.email,form.wishe,form.greeting)>
+        <cfset x=demoObj.send(form.email,form.wish,form.greeting)>
+        <cfoutput>
+           <p>#demoObj.send("form.email","form.wish","form.greeting")#</p>
+        </cfoutput>
     </cfif>
     
 </body>
