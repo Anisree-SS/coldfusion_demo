@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Qn23/style/styleFor23.css">
+    <script src="../Qn23/script/forScript23.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="formBackground">
         <div class="formSection">
-            <form action="qn23SndPage.cfm" method="post">
+            <form action="qn23SndPage.cfm" method="post" onsubmit="return validate()">
                 <div class="formTopSection">
                     <img src="../Qn23/assests/logo.png" alt="logo" class="logo">
                 </div>
@@ -19,15 +20,22 @@
                         <p class="fontSize12">Infinity Box Inc.</p>
                     </div>
                     <hr>
+                    <div id="displayError">
+                        <div class="dataOfError">
+                            <p class="errorMsg">There was a problem with your submission.</p>
+                            <p class="errorMsgSnd">Errors have been <span class="highlight">highlighted</span> below.</p>
+                        </div>
+                    </div>
                     <div class="divStyle">
                         <p class="spanStyle">Which position are you applaying for? <span class="clrRed">*</span></p>
-                        <select name='dropDown' class="widthForInput" id="position">
+                        <select name='dropDown' class="widthForInput" id="positions">
                             <option value=""></option>
                             <option value="InterFace Designer">InterFace Designer</option>
                             <option value="Software Engineer">Software Engineer</option>
                             <option value="System Administrator">System Administrator</option>
                             <option value="Office Manager">Office Manager</option>
                         </select>
+                        <p id="forPosition" class="errorStyle"> </p>
                     </div>
                     <div class="divStyle">
                         <p class="spanStyle">Are you willing to relocate?<span class="clrRed">*</span></p>
@@ -46,12 +54,14 @@
                                 <img src="../Qn23/assests/calendar.png" alt="calender.png" class="calendarIcon">
                             </span>
                         </div>
+                        <p id="forDate" class="errorStyle"></P>
                     </div>
                     <div class="divStyle">
                         <span class="spanStyle">Portfolio Web Site</span>
-                        <input type="text" placeholder="http//">
+                        <input type="text" placeholder="http//" id="profile">
+                        <p id="forProfile" class="errorStyle"></p>
                     </div>
-                    <div class="divStyle">
+                    <div class="divStyle" class="errorStyle"></p>
                         <span class="spanStyle">Attach a Copy of Your Resume</span>
                         <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
                         <p class="fontSize10">Word or PDF Documents Only</p>
@@ -87,35 +97,38 @@
                                 <span class="fontSize11">first</span>
                             </div>
                             <div class="divColoumFlex">
-                                <input type="text" name="Lname" class="widthForLast" id="lNmae">
+                                <input type="text" name="Lname" class="widthForLast" id="lName">
                                 <span class="fontSize11">Last</span>
                             </div>
                         </div>
+                        <p class="errorStyle" id="forName"></p>
                     </div>
                     <div class="divStyle">
                         <p class="spanStyle">Email Address<span class="clrRed">*</span></p>
                         <input type="email" name="email" id="emial">
+                        <p id="forEmail" class="errorStyle"></P>
                     </div>
                     <div class="divStyle">
                         <p class="spanStyle">Phone<span class="clrRed">*</span></p>
                         <div>
                             <div class="divRowFlex">
                                 <div class="divColoumFlex">
-                                    <input type="text"  maxlength="3" class="forDate">
+                                    <input type="text"  maxlength="3" class="forDate" id="phonePartOne">
                                     <span class="fontSize11">###</span>
                                 </div>
                                 <span>-</span>
                                 <div class="divColoumFlex">
-                                    <input type="text"  maxlength="3" class="forDate">
+                                    <input type="text"  maxlength="3" class="forDate" id="phonePartTwo">
                                     <span class="fontSize11"> ### </sapn>
                                 </div>
                                 <span>-</span>
                                 <div class="divColoumFlex">
-                                    <input type="text"  maxlength="4"  class="forYear">
+                                    <input type="text"  maxlength="4"  class="forYear" id="phonePartThree">
                                     <span class="fontSize11">####</span>
                                 </div>
                             </div>
                         </div>
+                        <p id="forPhone" class="errorStyle"></p>
                     </div>
                     <div>
                         <input type="submit" value="Submit" name="submit" class="buttonStyle">
@@ -126,11 +139,11 @@
                 </div>
             </form>
         </div>
+    </div>
     <div class="LastData">
         <p class="fontSize10">Powered By</p>
         <img src="../Qn23/assests/logoLast.png" alt="logo" class="imageLast">
         <span class="fontSize12">See how easy it is to <a href="#">create a form</span>
-    </div>
     </div>
 </body>
 </html>

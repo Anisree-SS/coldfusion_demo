@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <h5>Welcome</h5>
-    </div>
-</body>
+<html>
+  <head>
+  </head>
+  <body>
+    <h5>welcom</h5>
+  </body>
 </html>
