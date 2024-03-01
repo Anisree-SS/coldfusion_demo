@@ -68,6 +68,7 @@ body{
     display:flex;
     justify-content: flex-start;
     flex-direction: column;
+    background-color: #FFFFFF;
     padding:3px;
     gap:5px;
     width: 64%;
@@ -219,4 +220,15 @@ hr{
 .errorStyle{
     color:#df0000;
     font-size: 11px;
+}
+
+.error{
+    color:#df0000;
+}
+.errorDivClr{
+    background-color: #FFDFDF;
+}
+
+.selectDivClr{
+    background-color: #FFF7C0;
 }
