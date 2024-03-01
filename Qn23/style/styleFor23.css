@@ -181,7 +181,7 @@ hr{
 }
 
 #displayError{
-    display: block;
+    display: none;
     border: 1px solid red;
     border-radius: 20px;
     width: 99%;
@@ -229,6 +229,11 @@ hr{
     background-color: #FFDFDF;
 }
 
-.selectDivClr{
+.divStyle{
+    background-color: #FFFFFF;
+}
+
+.divStyle:active{
     background-color: #FFF7C0;
 }
+

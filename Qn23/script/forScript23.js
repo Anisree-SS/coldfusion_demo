@@ -7,11 +7,13 @@ function validate(){
             document.getElementById("forPosition").innerHTML = "This field is required. Please enter a value.";
             errorPosition.classList.add("error");
             positionErrorDiv.classList.add("errorDivClr");
+            find();
         }
         else{
             document.getElementById("forPosition").innerHTML = "";
             errorPosition.classList.remove("error");
             positionErrorDiv.classList.remove("errorDivClr");
+            find();
         }
     var day=document.getElementById("day").value.trim();
     var month=document.getElementById("month").value.trim();
@@ -21,17 +23,20 @@ function validate(){
         if((day==="")||(month==="")||(year==="")){
             document.getElementById("forDate").innerHTML="This field is required.Please enter a value.";
             errorDate.classList.add("error");
-           dateErrorDiv.classList.add("errorDivClr");
+            dateErrorDiv.classList.add("errorDivClr");
+            find();
         }
         else if(isNaN(day)||isNaN(month)||isNaN(year)){
             document.getElementById("forDate").innerHTML="Enter a valid date";
             errorDate.classList.add("error");
             dateErrorDiv.classList.add("errorDivClr");
+            find();
         }
         else{
             document.getElementById("forDate").innerHTML="";
             errorDate.classList.remove("error");
             dateErrorDiv.classList.remove("errorDivClr");
+            find();
         }
     var profile = document.getElementById("profile").value.trim();
     var pattern = /^(http:\/\/|https:\/\/)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}\/?$/;
@@ -41,16 +46,19 @@ function validate(){
             document.getElementById("forProfile").innerHTML = "Please enter a valid URL in http://website.com format.";
             errorProfile.classList.add("error");
             profileErrorDiv.classList.add("errorDivClr");
+            find();
         } 
         else if (!pattern.test(profile)) {
             document.getElementById("forProfile").innerHTML = "Please enter a valid URL in http://website.com format.";
             errorProfile.classList.add("error");
             profileErrorDiv.classList.add("errorDivClr");
+            find();
         } 
         else {
             document.getElementById("forProfile").innerHTML = "";
             errorProfile.classList.remove("error");
             profileErrorDiv.classList.remove("errorDivClr");
+            find();
         }
         
     var fName=document.getElementById("fName").value.trim();
@@ -61,11 +69,13 @@ function validate(){
             document.getElementById("forName").innerHTML="This field is required.Please enter a value.";
             errorName.classList.add("error");
             nameErrorDiv.classList.add("errorDivClr");
+            find();
         }
         else{
             document.getElementById("forName").innerHTML="";
             errorName.classList.remove("error");
             nameErrorDiv.classList.remove("errorDivClr");
+            find();
         }
     var email=document.getElementById("email").value.trim();
     var errorEmail=document.getElementById("errorEmail"); 
@@ -76,16 +86,19 @@ function validate(){
             document.getElementById("forEmail").innerHTML="This field is required. Please enter a value.";
             errorEmail.classList.add("error");
             emailErrorDiv.classList.add("errorDivClr");
+            find();
         }
         else if(!emailPattern.test(email)){
             document.getElementById("forEmail").innerHTML="Please enter a valid email address.";
             errorEmail.classList.add("error");
             emailErrorDiv.classList.add("errorDivClr");
+            find();
         }
         else{
             document.getElementById("forEmail").innerHTML="";
             errorEmail.classList.remove("error");
             emailErrorDiv.classList.remove("errorDivClr");
+            find();
         }
    
     var phone1=document.getElementById("phonePartOne").value.trim();
@@ -98,7 +111,7 @@ function validate(){
             document.getElementById("forPhone").innerHTML="This field is required. Please enter a value.";
             errorPhone.classList.add("error");
             phoneErrorDiv.classList.add("errorDivClr");
-
+            find();
             return false;
 
         }
@@ -106,10 +119,34 @@ function validate(){
             document.getElementById("forPhone").innerHTML="";
             errorPhone.classList.remove("error");
             phoneErrorDiv.classList.remove("errorDivClr");
+            find();
         }
 }
 
-
-
-
+function find() 
+{
+		 var x = document.getElementById("displayError");
+		 if (x.style.display ==="none") 
+		{
+    			x.style.display = "block";
+ 		 } 
+		else 
+		{
+   			 x.style.display = "none";
+ 		}
+}
     
+
+document.addEventListener("DOMContentLoaded", function() {
+    var divStyle = document.querySelectorAll('.divStyle');
+    divStyle.forEach(function(divStyle) {
+        divStyle.addEventListener('click', function() {
+            divStyle.forEach(function(divStyle) {
+                divStyle.classList.remove('active');
+            });
+
+            // Add active class to clicked box
+            this.classList.add('active');
+        });
+    });
+});
