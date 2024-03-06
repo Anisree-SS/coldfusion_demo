@@ -8,19 +8,16 @@
         </cfif>
         <cfset result = structNew()>
         <cfif StructKeyExists(session.structForth, arguments.key)>
-            
-            <cfif session.structForth[arguments.key] eq arguments.value>
-               
-                <cfset result[arguments.key] = "This key-value pair already exists">
+            <cfif structKeyExists(session.stackValue,"#arguments.key#")>
+                <cfdump var=" The Key #arguments.key# Already Exists" abort>
             <cfelse>
-               
-                <cfset result[arguments.key] = "This key already exists with a different value">
+               <cfset session.stackValue["#arguments.key#"] = "#arguments.value#">	
+		       <cfreturn session.stackValue>
             </cfif>
         <cfelse>
-            <cfset structInsert(session.structForth, arguments.key, arguments.value)>
-            <cfset result[arguments.key] = "Key-value pair added successfully">
+            <cfset session.stackValue["#arguments.key#"] = "#arguments.value#">	
+		    <cfreturn session.stackValue>
         </cfif>
         
-        <cfreturn result>
     </cffunction>
 </cfcomponent>

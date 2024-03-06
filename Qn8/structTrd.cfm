@@ -18,20 +18,26 @@ CFDUMP the structure.
 
    </h6>
    <div>
-        <form action="structTrd.cfm" method="post">
-            <label for="key">Enter Key:</label>
-            <input type="text" id="key" name="key" required>  <br>
-            <label for="value">Enter Value:</label>
-            <input type="text" id="value" name="value" required>  <br>     
-            <input type="submit" value="submit" name="submit">
+        <form action="structTrd.cfm" method="post" class="form1">
+            <div>
+                <label>Key </label>
+                <input type="textbox" id="key" name="key">
+            </div>
+            <div>
+                <label>Value </label>
+                <input type="textbox" id="value" name="value">
+            </div>
+            <button class="submitbtn" type="Submit" name="submitbtn">Submit</button>
         </form>
    </div>
-   <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
+   <div>
+        <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
             <cfinvoke component="components/forStructTrd" method="forStructTrdFunction" returnvariable="keyandvalue">
                 <cfinvokeargument name="key" value="#form.key#">
                 <cfinvokeargument name="value" value="#form.value#">
             </cfinvoke>
-            <cfdump var="#keyandvalue#" label="Key Value Pair">
+            <cfdump var="#keyandvalue#">
         </cfif>
+   </div>
 </body>
 </html>
