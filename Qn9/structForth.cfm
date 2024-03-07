@@ -31,7 +31,7 @@ This is different from CF_Struct_3 task. If I enter ColdFusion and ColdFusion is
             <cfinvokeargument name="key" value="#form.key#">
             <cfinvokeargument name="value" value="#form.value#">
         </cfinvoke>
-        <cfdump var="#keyandvalue#" label="Key Value Pair">
+        <cfdump var="#keyandvalue#" >
     </cfif>
 </body>
 </html>

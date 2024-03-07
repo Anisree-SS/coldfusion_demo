@@ -10,26 +10,44 @@
     <h6>
        Today date, current Month in numeric, current month in word, Last friday date, Last day of month. Show Last 5 days date & day like below. 
     </h6>
-    <div>
-        <h4> Dates </h4>
-        <form action="dateFormate.cfm" method="post">
-            <input type="submit" name="submit" value="submit">
-        </form>
-    </div>
-    <cfif structKeyExists(form, "submit")>
-        <cfset dateObj=createObject("component","components/ForDateFormate")>
-        <cfset yr=dateObj.forClrDate()>
-        <cfset lastFriday=dateObj.forLastFriday()>
-        <cfset monthNumber=dateObj.forMonth()>
-        <cfset lastDay=dateObj.forLastDay()>
-        <cfset LastWednesday=dateObj.forLastWednesday()>
-        <cfoutput>
-            <p>#dateObj.forClrDate(yr)#</p>
-            <p>#dateObj.forMonth(monthNumber)#</p>
-            <p>#dateObj.forLastFriday(lastFriday)#</p>
-            <p>#dateObj.forLastDay(lastDay)#</p>
-            <p>#dateObj.forLastWednesday(LastWednesday)#</p>
-        </cfoutput>
-    </cfif>
+        <cfscript>
+            myDatetime = DateFormat(now(),'yyyy-mmm-dd');
+            today = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+            styles = ["color: green;", "color: orange;", "color: darkgreen", "color: black;", "color: blue;", "color:
+            darkred;", "color: red;"];
+
+            day = (dayOfWeek(myDatetime, "iso"));
+            month = Month(myDatetime);
+            myLocale=getLocale();
+            monthinword = MonthAsString(month , myLocale);
+            daysinmonth = DaysInMonth(myDatetime);
+
+            writeOutput("Today's date : " & myDatetime &"<br /> ")
+            writeOutput("<p style='" & styles[day] & "'>#today[day]#<p>")
+            writeOutput("Current Month in numeric : " & month &"<br /><br>")
+            writeOutput("Current month in word : " & monthinword &"<br /><br>")
+            writeOutput("last day of the month : " & daysinmonth & " - " & DateFormat(myDatetime, 'mmm') &"-" & Year(myDatetime) & "<br /><br>")
+
+            for (i = daysinmonth; i >= 1; i--) {
+                dateOb = createDate(year(myDatetime), month(myDatetime), i)
+                k=(dayOfWeek(dateOb, "iso"));
+                    if (k == 5) {
+                    writeOutput( "last Friday of the month : " & i & " - " & DateFormat(myDatetime, 'mmm') & " - " & Year(myDatetime) & "<br /><br>")
+                    break;
+                }
+            }
+
+            writeOutput("Last 5 Days of the Month</br>")
+                counter = 0;
+            for (i = daysinmonth; i >= 24; i--) {
+                dateObj = createDate(year(myDatetime), month(myDatetime), i)
+                j=dayOfWeek(dateObj, "iso");
+                writeOutput(dateFormat(dateObj, "dd/mmm/yyyy")&"<span style='" & styles[j] & "'>#today[j]#</span>" &"<br>");
+                    if (counter >= 4) {
+                        break;
+                    }
+                counter++;
+            }
+        </cfscript>
 </body>
 </html>

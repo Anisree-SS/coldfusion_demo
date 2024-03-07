@@ -10,7 +10,7 @@
 <body>
     <div class="formBackground">
         <div class="formSection">
-            <form action="qn23SndPage.cfm" method="post" onsubmit="return validate()">
+            <form action="qn23.cfm" method="post" onsubmit="return validate()">
                 <div class="formTopSection">
                     <img src="../Qn23/assests/logo.png" alt="logo" class="logo">
                 </div>
@@ -26,8 +26,8 @@
                             <p class="errorMsgSnd">Errors have been <span class="highlight">highlighted</span> below.</p>
                         </div>
                     </div>
-                    <div class="divStyle">
-                        <p class="spanStyle">Which position are you applaying for? <span class="clrRed">*</span></p>
+                    <div class="divStyle" id="positionErrorDiv" class="errorDivClr" class="selectDivClr" >
+                        <p class="spanStyle" class="error" id="errorPosition">Which position are you applaying for? <span class="clrRed">*</span></p>
                         <select name='dropDown' class="widthForInput" id="positions">
                             <option value=""></option>
                             <option value="InterFace Designer">InterFace Designer</option>
@@ -37,13 +37,13 @@
                         </select>
                         <p id="forPosition" class="errorStyle"> </p>
                     </div>
-                    <div class="divStyle">
+                    <div class="divStyle" >
                         <p class="spanStyle">Are you willing to relocate?<span class="clrRed">*</span></p>
                         <div class="redioStyle" ><input type="radio" name="radioButton" value="Yes" checked="checked">Yes</div>
                         <div class="redioStyle" ><input type="radio" name="radioButton" value="No">No</div>
                     </div>
-                    <div class="divStyle">
-                        <p class="spanStyle">When can you start?<span class="clrRed">*</span></p>
+                    <div class="divStyle" id="dateErrorDiv" class="errorDivClr">
+                        <p class="spanStyle" class="error" id="errorDate">When can you start?<span class="clrRed">*</span></p>
                         <div class="dateData">
                             <input type="text" id="day" maxlength="2" class="forDate">
                             <span>/</span>
@@ -56,12 +56,12 @@
                         </div>
                         <p id="forDate" class="errorStyle"></P>
                     </div>
-                    <div class="divStyle">
-                        <span class="spanStyle">Portfolio Web Site</span>
+                    <div class="divStyle" id="profileErrorDiv" class="errorDivClr">
+                        <span class="spanStyle"  class="error" id="errorProfile">Portfolio Web Site</span>
                         <input type="text" placeholder="http//" id="profile">
                         <p id="forProfile" class="errorStyle"></p>
                     </div>
-                    <div class="divStyle" class="errorStyle"></p>
+                    <div class="divStyle"></p>
                         <span class="spanStyle">Attach a Copy of Your Resume</span>
                         <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
                         <p class="fontSize10">Word or PDF Documents Only</p>
@@ -89,8 +89,8 @@
                     <div>
                         <span>Your Contact Information</span>
                     </div>
-                    <div class="divStyle">
-                        <p class="spanStyle">Name<span>*<span></p>
+                    <div class="divStyle" id="nameErrorDiv" class="errorDivClr">
+                        <p class="spanStyle" class="error" id="errorName">Name<span>*<span></p>
                         <div class="divRowFlex">
                             <div class="divColoumFlex">
                                 <input type="text" name="Fname" class="widthForFirst" id="fName">
@@ -103,13 +103,13 @@
                         </div>
                         <p class="errorStyle" id="forName"></p>
                     </div>
-                    <div class="divStyle">
-                        <p class="spanStyle">Email Address<span class="clrRed">*</span></p>
-                        <input type="email" name="email" id="emial">
-                        <p id="forEmail" class="errorStyle"></P>
+                    <div class="divStyle" id="emailErrorDiv" class="errorDivClr">
+                        <p class="spanStyle" class="error" id="errorEmail">Email Address<span class="clrRed">*</span></p>
+                        <input type="text" name="email" id="email">
+                        <p id="forEmail" class="errorStyle"> </P>
                     </div>
-                    <div class="divStyle">
-                        <p class="spanStyle">Phone<span class="clrRed">*</span></p>
+                    <div class="divStyle" id="phoneErrorDiv" class="errorDivClr">
+                        <p class="spanStyle" class="error" id="errorPhone">Phone<span class="clrRed">*</span></p>
                         <div>
                             <div class="divRowFlex">
                                 <div class="divColoumFlex">

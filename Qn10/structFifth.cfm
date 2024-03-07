@@ -26,12 +26,14 @@ In this task, you should show the keys in alphabetical order.
             <input type="submit" value="submit" name="submit">
         </form>
    </div>
-   <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
+   <div>
+        <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
             <cfinvoke component="components/forStructFifth" method="forFfthStruct" returnvariable="keyandvalue">
                 <cfinvokeargument name="key" value="#form.key#">
                 <cfinvokeargument name="value" value="#form.value#">
             </cfinvoke>
-            <cfdump var="#keyandvalue#" label="Key Value Pair">
+            <cfdump var="#keyandvalue#">
         </cfif>
+    </div>
 </body>
 </html>

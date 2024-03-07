@@ -15,8 +15,6 @@
             <cfloop array="#keysArray#" index="key">
                 <cfset sortedStruct[key] = session.structFifth[key]>
             </cfloop>
-            <cfdump var="#sortedStruct#">
-
 		<cfreturn session.structFifth>
     </cffunction>
 </cfcomponent>

@@ -1,13 +1,16 @@
 <cfcomponent>
     <cffunction name="forfind" access="public" returnType="string">
-        <cfargument name="inputString" type="string" required="true">
-        <cfargument name="data" type="string" required="true">
-        <cfparam name="arguments.inputString" type="string">
-        <cfparam name="arguments.data" type="string">
-        <cfset keyword=arguments.data>
-        <cfset var keywordCount = listLen(arguments.inputString, keyword)>
-        <cfset var resultMessage = #keywordCount#>
-        <cfreturn resultMessage>
+        <cfargument name="sentence">
+        <cfargument name="word">
+        <cfset sentence=#arguments.sentence#> 
+        <cfset wordCount = 0>
+        <cfset wordList = ListToArray(sentence, " ")>
+        <cfloop from="1" to="#ArrayLen(wordList)#" index="i">
+            <cfif CompareNoCase(wordList[i], #arguments.word#) EQ 0>
+                <cfset wordCount = wordCount + 1>
+            </cfif>
+        </cfloop>
+        <cfreturn wordCount>
     </cffunction>
 </cfcomponent>
 

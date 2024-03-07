@@ -7,12 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h6>Create a page with text box & submit submit button. If you user gave “the” as input, then you need to show 
+    <h6>Create a page with text box & submit submit button. If you user gave the as input, then you need to show 
     the result as, Found the keyword in 2 times - the quick brown fox jumps over the lazy dog. If input is dog then result should be, Found the keyword in 1 time
      - the quick brown fox jumps over the lazy dog
     </h6>
     <div>
         <form action="qn13.cfm" method="post">
+            <span>Enter the data</span>
             <input type="text"  name="data"  required>
             <br>
             <input type="submit" name="submit">
