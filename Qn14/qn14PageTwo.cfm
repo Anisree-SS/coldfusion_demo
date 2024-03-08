@@ -13,12 +13,12 @@
       <center>
           <table>
               <tr>
-
               <th>Image Name</th>
               <th>Image</th>
               </tr>
-              <cfoutput query="thumpnailObj">
+              
               <tr>
+              <cfdump var="#imgname#">
                   <td>#imgname#</td>
                   <td>
                       <form action="qn14PageThree.cfm" method="post"> 
@@ -27,7 +27,7 @@
                       </form>
                   </td>  
               </tr>
-              </cfoutput>
+            
           </table>
           <button type="button" ><a href="qn14.cfm">Back</a></button>
       </center>

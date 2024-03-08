@@ -10,7 +10,6 @@
 <body>
     <cfset local.imgid = ids>
         <cfset local.thumpnail = createObject("component", "components/forQn14").displayDetails(id='#local.imgid#')>
-    
     <center>
         <table>
             <tr>
