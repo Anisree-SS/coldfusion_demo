@@ -19,7 +19,6 @@
     </div>
     <cfif structKeyExists(form, "forCheckNumber")>
         <cfset caseObj = createObject("component","components/forSwitchCase")>
-        <cfset x =caseObj.forPrint("form.numEnter")>
         <cfoutput>
             <p>#caseObj.forPrint(numEnter)#</p>
         </cfoutput>
