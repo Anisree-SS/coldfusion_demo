@@ -13,17 +13,17 @@
     <div>
         <!-- Using cfinvoke -->
         <b>Using cfinvoke:</b>
-        <cfinvoke component="components/forQn15" method="multiply" num1="1" num2="2" returnvariable="result">
+        <cfinvoke component="components/qn15" method="multiply" num1="1" num2="2" returnvariable="result">
             <cfinvokeargument name="num3" value="1">
         </cfinvoke>
         <cfdump var="#result#" >
       
-        <cfinvoke component="components/forQn15" method="multiply" num1="1" num2="2" num3="3" returnvariable="result">
+        <cfinvoke component="components/qn15" method="multiply" num1="1" num2="2" num3="3" returnvariable="result">
             <cfinvokeargument name="num4" value="1">
         </cfinvoke>
         <cfdump var="#result#" >
       
-        <cfinvoke component="components/forQn15" method="multiply" num1="1" num2="2" num3="3" num4="4" returnvariable="result">
+        <cfinvoke component="components/qn15" method="multiply" num1="1" num2="2" num3="3" num4="4" returnvariable="result">
         </cfinvoke>  
         <CFOUTPUT>
             <p>#result#</p>
@@ -32,7 +32,7 @@
     <div>
         <!-- Using cfobject -->
         <b>Using cfobject:</b>
-        <cfobject component="components/forQn15" name="multiplyObj">
+        <cfobject component="components/qn15" name="multiplyObj">
         <cfset result1 = multiplyObj.multiply(1, 2)>
         <cfset result2 = multiplyObj.multiply(1, 2, 3)>
         <cfset result3 = multiplyObj.multiply(1, 2, 3, 4)>
@@ -45,7 +45,7 @@
     <div>
          <!-- Using createObject() -->
         <b>Using createObject():</b>
-        <cfset obj = createObject("component", "components/forQn15")>
+        <cfset obj = createObject("component", "components/qn15")>
         <cfset result4 = obj.multiply(1, 2)>
         <cfset result5 = obj.multiply(1, 2, 3)>
         <cfset result6 = obj.multiply(1, 2, 3, 4)>

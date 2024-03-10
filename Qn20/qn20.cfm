@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/styleQn20.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,20 +15,10 @@
     </h6>
     <div>
         <cfif StructKeyExists(form, "submit")> 
-            <cfif #form.captcha# EQ #session.captchaText#>
-                <cfoutput>
-                    <p class="clrGreen">Email Address successfully subscribed to our newsletter.</p>
-                </cfoutput>
-            <cfelse>
-                <cfoutput>
-                    <p class="clrRed">Invalid captcha.!!!!</p>
-                </cfoutput>
-            </cfif>
-            <!---cfset demoObj=createObject("component","components/forQn20")>
-            <cfset x=demoObj.check("form.captcha","session.captchaText")>
+            <cfset captchaObj=createObject("component","components/qn20")>
             <cfoutput>
-                <p>#demoObj.check("form.captcha","session.captchaText")#</p>
-            </cfoutput--->
+                <p>#captchaObj.subscribe(form.captcha,session.captchaText)#</p>
+            </cfoutput>
         </cfif>
     </div>
     <div>
@@ -48,3 +38,4 @@
     </div>
 </body>
 </html>
+

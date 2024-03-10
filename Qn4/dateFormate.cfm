@@ -10,6 +10,13 @@
     <h6>
        Today date, current Month in numeric, current month in word, Last friday date, Last day of month. Show Last 5 days date & day like below. 
     </h6>
+
+    <!---form action="dateFormate.cfm" method="post">
+        <input type="submit" value="show" name="submit">        
+    </form>
+    <cfif StructKeyExists(form, "submit")>
+        <cfset 
+    </cfif--->
         <cfscript>
             myDatetime = DateFormat(now(),'yyyy-mmm-dd');
             today = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];

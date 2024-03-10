@@ -31,7 +31,7 @@
          </form>
       </div>
       <cfif structKeyExists(form, "password")>
-         <cfinvoke  component="components/forQn17" method="login" returnvariable="returnValue">
+         <cfinvoke  component="components/qn27" method="login" returnvariable="returnValue">
             <cfinvokeargument  name="userName"  value="#form.userName#">
             <cfinvokeargument  name="password"  value="#form.password#">
          </cfinvoke>

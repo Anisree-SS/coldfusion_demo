@@ -27,7 +27,7 @@ This is different from CF_Struct_3 task. If I enter ColdFusion and ColdFusion is
         </form>
    </div>
    <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
-        <cfinvoke component="components/forStructForth" method="forStructForthFunction" returnvariable="keyandvalue">
+        <cfinvoke component="components/structForth" method="structForthFunction" returnvariable="keyandvalue">
             <cfinvokeargument name="key" value="#form.key#">
             <cfinvokeargument name="value" value="#form.value#">
         </cfinvoke>

@@ -20,7 +20,7 @@ Create a structure in ColdFusion with the values from the text box. The text ent
         </form>
     </div>
     <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
-        <cfset structFrtObj=CreateObject("component","components/forStructFrt")>
+        <cfset structFrtObj=CreateObject("component","components/StructFrt")>
         <cfset x=structFrtObj.structurefirst(form.Key)>
         <cfdump var="#x#">
     </cfif>

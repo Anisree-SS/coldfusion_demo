@@ -8,19 +8,19 @@
 </head>
 <body>
     <h6>
-        Input for the text box is any number between 1 to 5. Based upon the user input, you should show the corresponding string. 5 is Very good. 4 is good. 3 is fair. 1 & 2 is Ok.Use cfcase 
+        Input for the text box is any number between 1 to 5. Based upon the user input, you should show the corresponding string. 5 is Very good. 4 is good. 3 is fair. 1 & 2 is Ok.Use cfif, cfelseif,cfelse
     </h6>
     <div>
-        <form action="switchCase.cfm" method="post">
+        <form action="Qn1.cfm" method="post">
             <span>Enter the number:</span>
             <input type="number" name="numEnter" id="number">
             <input type="submit" name="forCheckNumber" value="Submit">
         </form>
     </div>
     <cfif structKeyExists(form, "forCheckNumber")>
-        <cfset caseObj = createObject("component","components/switchCase")>
+        <cfset demoObj = createObject("component","components/qn1")>
         <cfoutput>
-            <p>#caseObj.show(numEnter)#</p>
+            <p>#demoObj.show(numEnter)#</p>
         </cfoutput>
     </cfif>
 </body>

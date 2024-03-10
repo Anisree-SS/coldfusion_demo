@@ -20,9 +20,9 @@
             <br>
         </form>
         <cfif StructKeyExists(form, "submit")>
-            <cfset demoObj = createObject("component","components.forQn13")>
+            <cfset demoObj = createObject("component","components.qn13")>
             <cfset inputString = "the quick brown fox jumps over the lazy dog">
-            <cfset result = demoObj.forFind(inputString, form.data)>
+            <cfset result = demoObj.find(inputString, form.data)>
             <cfoutput>#result#</cfoutput>
         </cfif>
         <br>

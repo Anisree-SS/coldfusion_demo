@@ -38,8 +38,7 @@
         </form>
     </div>
     <cfif StructKeyExists(form, "submit")>
-        <cfset demoObj=createObject("component","components/forQn21")>
-        <cfset x=demoObj.send(form.email,form.wish,form.greeting)>
+        <cfset demoObj=createObject("component","components/qn21")>
         <cfoutput>
            <p>#demoObj.send("form.email","form.wish","form.greeting")#</p>
         </cfoutput>
