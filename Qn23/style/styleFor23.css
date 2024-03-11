@@ -229,10 +229,6 @@ hr{
     background-color: #FFDFDF;
 }
 
-.divStyle{
-    background-color: #FFFFFF;
-}
-
 .divStyle:active{
     background-color: #FFF7C0;
 }

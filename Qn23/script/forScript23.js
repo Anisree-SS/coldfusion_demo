@@ -137,16 +137,4 @@ function find()
 }
     
 
-document.addEventListener("DOMContentLoaded", function() {
-    var divStyle = document.querySelectorAll('.divStyle');
-    divStyle.forEach(function(divStyle) {
-        divStyle.addEventListener('click', function() {
-            divStyle.forEach(function(divStyle) {
-                divStyle.classList.remove('active');
-            });
 
-            // Add active class to clicked box
-            this.classList.add('active');
-        });
-    });
-});

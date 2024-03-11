@@ -21,8 +21,8 @@
     </div>
     <div>
         <cfif StructKeyExists(form, "submit")>
-            <cfset demoObj=createObject("component","components/forQn19")>
-            <cfset x=demoObj.viewCount()>
+            <cfset demoObj=createObject("component","components/qn19")>
+            
             <cfoutput>
                 <p>#demoObj.viewCount()#</p>
             </cfoutput>

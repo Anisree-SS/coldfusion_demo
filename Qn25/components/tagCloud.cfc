@@ -6,12 +6,11 @@
                 <cfloop array="#words#" index="word">
                 <!--- Insert each word into the database --->
                     <cfquery datasource="demo" name="insertWord">
-                        INSERT INTO tableForQn25(data) 
+                        INSERT INTO dataTable(data) 
                         VALUES (<cfqueryparam value="#word#" cfsqltype="CF_SQL_VARCHAR">)
                     </cfquery>
                 </cfloop>
             </cfif>
-            <cfset msg="success">
-            <cfreturn msg>
+            <cfreturn "Data inserted successfully">
     </cffunction>
 </cfcomponent>

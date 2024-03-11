@@ -23,9 +23,9 @@
         </thead>
         <tbody>
             <cfset jsonData ='[{"Name":"saravanan","Age":27,"LOCATION":"dubai"},{"Name":"Ram","Age":26,"LOCATION":"Kovilpatti"}] '>
-            <cfset demoObj = createObject("component","components/forQn22")>
+            <cfset demoObj = createObject("component","components/qn22")>
             <cfoutput>
-                <p>#demoObj.showData(jsonData)#</p>
+                <p>#demoObj.show(jsonData)#</p>
             </cfoutput>
         </tbody>
         </table>

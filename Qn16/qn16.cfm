@@ -16,8 +16,8 @@
     </div>
     <div>
         <cfif StructKeyExists(form,"submit")>
-            <cfset demoObj=createObject("component","components/forQn16")>
-            <cfset x=demoObj.forPrint()>
+            <cfset demoObj=createObject("component","components/qn16")>
+            <cfset x=demoObj.show()>
         </cfif>
     </div>
 </body>

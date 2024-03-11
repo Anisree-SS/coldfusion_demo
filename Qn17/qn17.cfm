@@ -14,6 +14,7 @@ While clicking on submit button, page should show up 1 to given input number, od
     </h6>
     <div>
         <form action="qn17.cfm" method="post">
+            <span> Enter the limit : </span>
             <input type="text" name="number" id="number" >
             <br>
             <input type="submit" value="click" onclick="check()" name="submit">
@@ -21,10 +22,10 @@ While clicking on submit button, page should show up 1 to given input number, od
     </div>
     <div>
         <cfif StructKeyExists(form, "submit")>
-            <cfset demoObj=createObject("component","components/forQn17")>
+            <cfset demoObj=createObject("component","components/qn17")>
             <cfset inputNumber = form.number>
             <cfoutput>
-                <p>#demoObj.forPrint(inputNumber)#</p>      
+                <p>#demoObj.show(inputNumber)#</p>      
             </cfoutput>
         </cfif>
     </div>

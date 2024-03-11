@@ -32,7 +32,7 @@ CFDUMP the structure.
    </div>
    <div>
         <cfif structKeyExists(form, "key") and structKeyExists(form, "value")>
-            <cfinvoke component="components/forStructTrd" method="forStructTrdFunction" returnvariable="keyandvalue">
+            <cfinvoke component="components/structTrd" method="StructTrdFunction" returnvariable="keyandvalue">
                 <cfinvokeargument name="key" value="#form.key#">
                 <cfinvokeargument name="value" value="#form.value#">
             </cfinvoke>

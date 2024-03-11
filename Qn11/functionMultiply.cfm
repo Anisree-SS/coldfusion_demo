@@ -11,26 +11,23 @@
         Create a cfm page with a function named multiply. It should give results for the following function calls. 
     </h6>
 
-    <cfscript>
-        function multiply() {
-            var result = 1;
-            for (var i = 1; i <= arrayLen(arguments); i++) {
-                result *= arguments[i];
-            }
-            return result;
-        }
+    <cffunction name="multiply" returntype="numeric" access="public">
+        <cfargument name="numbers" type="numeric[]" required="true">
+            <cfset var result = 1>
+            <cfloop array="#arguments.numbers#" index="num">
+                <cfset result =result*num>
+            </cfloop>
+        <cfreturn result>
+    </cffunction>
 
-        res = multiply(1, 2);
-        writeDump(var=res);
+    <cfset res = multiply([1, 2])>
+    <cfdump var="#res#">
 
+    <cfset res = multiply([1, 2, 3])>
+    <cfdump var="#res#">
 
-        res = multiply(1, 2, 3);
-        writeDump(var=res);
+    <cfset res = multiply([1, 2, 3, 4])>
+    <cfdump var="#res#">
 
-
-        res = multiply(1, 2, 3, 4);
-        writeDump(var=res);
-        
-    </cfscript>
 </body>
 </html>

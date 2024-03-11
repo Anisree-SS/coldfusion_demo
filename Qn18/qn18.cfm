@@ -16,8 +16,8 @@
         This Query variable should have 3 rows of data.
     </h6>
     <div>
-        <cfset demoObj=createObject("component","components/forQn18")>
-        <cfset x=demoObj.sqlQn18()>
+        <cfset demoObj=createObject("component","components/qn18")>
+        <cfset x=demoObj.showDetails()>
         <cfoutput>
             <table>
             <tr>
