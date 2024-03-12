@@ -27,7 +27,7 @@
     </cffunction>
 
 
-
+    <!--- function for countWord.cfm--->
     <cffunction name="dataCount" access="public" returntype="any">
         <cfargument name="data" type="string" required="true">
         
@@ -47,17 +47,51 @@
                 </cfif>
             </cfif>
         </cfloop>
-       <cfreturn wordCounts>
 
-         <!--- start--->
-             <!---<cfset sortedData = structSort(wordCounts, "numeric", "desc")>
-            <cfset sortedWords=[]>
-            <cfloop array="#sortedData#" index="word">
-                <cfset arrayAppend(sortedWords, [word, wordCounts[word]])>
+        <cfset sortedData = structSort(wordCounts, "numeric", "desc")>
+        <cfset sortedData = structSort(wordCounts, "numeric", "desc")>
+        <cfset sortedWords=[]>
+        <cfloop array="#sortedData#" index="word">
+            <cfset arrayAppend(sortedWords, [word, wordCounts[word]])>
+        </cfloop>
+        <cfreturn sortedWords>
+
+        <!---strat--->
+        <cfloop array="#sortedData#" index="word">
+            <!--- Insert each word into the database --->
+            <cfquery datasource="demo" name="insertWord">
+                INSERT INTO dataTable(data) 
+                VALUES (<cfqueryparam value="#word#" cfsqltype="cf_sql_varchar">)
+            </cfquery>
+        </cfloop>
+
+        <cfquery name="checkQuery" datasource="demo">
+            SELECT * from
+            FROM dataTable
+        </cfquery>
+        <cfreturn checkQuery>
+                            
+        <!---for insert--->
+           
+            
+
+
+
+        <!--- end of insert--->
+
+        <!---<cfquery name="getRecords" datasource="demo">
+            SELECT data FROM dataTable
+        </cfquery>
+        <cfset wordCounts = {}>
+        <cfloop query="getRecords">
+            <cfset words = reMatch("[^\W\d_]{3,}", getRecords.data)>
+            <cfloop array="#words#" index="word">
+                <cfset word = LCase(word)>
+                <cfset wordCounts[word] = wordCounts[word] + 1>
             </cfloop>
-            <cfreturn sortedWords> --->
-            
-            
+        </cfloop>
+        <cfreturn wordCounts>--->
+    
         <!--- end--->
 
         
