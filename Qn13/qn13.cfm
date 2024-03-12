@@ -22,8 +22,7 @@
         <cfif StructKeyExists(form, "submit")>
             <cfset demoObj = createObject("component","components.qn13")>
             <cfset inputString = "the quick brown fox jumps over the lazy dog">
-            <cfset result = demoObj.find(inputString, form.data)>
-            <cfoutput>#result#</cfoutput>
+            <cfoutput>#demoObj.find(inputString, form.data)#</cfoutput>
         </cfif>
         <br>
         <br>
