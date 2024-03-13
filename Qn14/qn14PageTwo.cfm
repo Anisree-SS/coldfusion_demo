@@ -18,18 +18,16 @@
               </tr>
               
               <tr>
-              <cfdump var="#imgname#">
                   <td>#imgname#</td>
                   <td>
                       <form action="qn14PageThree.cfm" method="post"> 
                           <input type="hidden" name="ids" value="#thumpnailObj#">
-                          <button action="" method="post"><img width="20" height="20" src="../Qn14/assets/#imgpath#" /></button>
+                          <button action="" method="post"><img width="20" height="20" src="../Qn14/assets/#imgpath#">
+                          </button>
                       </form>
                   </td>  
               </tr>
-            
           </table>
-          <button type="button" ><a href="qn14.cfm">Back</a></button>
       </center>
     </cfif>
   </body>

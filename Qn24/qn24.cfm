@@ -24,13 +24,14 @@
             <input type="submit" id="submitButton" name="submit" value="Submit" disabled>
         </form>
     </div>
-    <!---<div>
-        <cfif structKeyExists(form, "check")>
-            <cfinvoke component="components/qn24" method="checkMail" returnvariable="nameAndEmail">
+   <div>
+        <cfif structKeyExists(form, "submit")>
+            <cfinvoke component="components/qn24" method="uploadMail" returnvariable="nameAndEmail">
                 <cfinvokeargument name="name" value="#form.name#">
                 <cfinvokeargument name="email" value="#form.email#">
             </cfinvoke>
+            <cfdump var = "#nameAndEmail#">
         </cfif>
-    </div>--->
+    </div>
 </body>
 </html>

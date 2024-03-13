@@ -1,17 +1,26 @@
 $(document).ready(function() {
     $('#check').click(function() {
+        var name = $('#name').val(); 
         var email = $('#email').val();
+        if (name.trim() === '') {
+            alert('Please enter your name.');
+            return;
+        }
+        if (email.trim() === '') {
+            alert('Please enter your email.');
+            return;
+        }
         $.ajax({
             url: 'components/qn24.cfc?method=checkMail',
             type: 'post',
-            data: {email: email, name: $('#name').val()},
+            data:  {name: name, email: email}, 
+            dataType:"json",
             success: function(response) {
-                if (response.message == "exists") {
-                    $('#error').text('Email id is already there');
-                    $('#submitButton').prop('disabled', true);
+                if (response.message =="exists"){
+                    alert('Email id is already there');
+                    $('#submitButton').prop('disabled',true);
                 } else {
-                    $('#error').text('');
-                    $('#submitButton').prop('disabled', false);
+                    $('#submitButton').prop('disabled',false);
                 }
             },
             error: function(xhr, status, error) {

@@ -1,5 +1,5 @@
 <cfcomponent>
-    <cffunction name="checkMail" access="public">
+    <cffunction name="checkMail" access="remote">
         <cfargument name="name" required="true">
         <cfargument name="email" required="true">
 
@@ -8,11 +8,16 @@
             FROM mailTable
             WHERE email = <cfqueryparam value="#arguments.email#" cfsqltype="CF_SQL_VARCHAR">
         </cfquery>
-        
-        <cfif checkEmail.emailCount gt 0>
+        <cfif checkEmail.emailCount GT 0>
             <cfoutput>{"message":"exists"}</cfoutput>
-            <cfdump var = "message:exists">
         <cfelse>
+            <cfoutput>{"message":"notexists"}</cfoutput>
+            
+        </cfif>   
+    </cffunction>
+    <cffunction name="uploadMail" access="public">
+        <cfargument name="name" required="true">
+        <cfargument name="email" required="true">
             <cfquery datasource="demo">
                 INSERT INTO mailTable (fName, email)
                 VALUES (
@@ -20,11 +25,7 @@
                     <cfqueryparam value="#arguments.email#" cfsqltype="CF_SQL_VARCHAR">
                 )
             </cfquery>
-            
-            <cfoutput>{"message":"notexists"}</cfoutput>
-            <cfdump var= "message:not exists">
-        </cfif>
-        
-        <cfreturn "Successfully subscribed!">
+            <cfreturn "email uploaded successfully">
     </cffunction>
 </cfcomponent>
+

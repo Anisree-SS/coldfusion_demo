@@ -2,14 +2,14 @@
     <cffunction  name="init" access="public">
         <cfargument  name="imgname" type="any">
         <cfargument  name="discription">
-        <cfargument  name="imageN">
+        <cfargument  name="imageName">
 
         <cfquery datasource="demo" name="list">
-            insert into imgTable (name , description, image_name) values('#arguments.imgname#', '#arguments.discription#', '#arguments.imageN#');
+            insert into imgTable (name , description, image_name) values('#arguments.imgname#', '#arguments.discription#', '#arguments.imageName#');
         </cfquery>
     </cffunction>
     <cffunction  name="displayDetails">
-        <cfargument  name="id">
+        <cfargument name="id">
         <cfquery datasource="demo" name="singleimg">
             select * from imgTable  where id = '#arguments.id#';
         </cfquery>
@@ -17,7 +17,7 @@
     </cffunction>
     <cffunction  name="thumpnail">
         <cfquery datasource="demo" name="thumpnail">
-            select *from imgTable ;
+            select name from imgTable ;
         </cfquery>
         <cfreturn thumpnail>
     </cffunction>
