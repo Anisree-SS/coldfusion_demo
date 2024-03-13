@@ -36,7 +36,7 @@
             fileField = "form.imageFile" 
             destination =  "#local.path#"
             nameConflict = "MakeUnique"
-            allowedextensions=".jpg, .jpeg, .png, .gif" >
+            allowedextensions=".jpg, .jpeg, .png, .gif">
 
             <cfset local.image = cffile.clientFile>
 
