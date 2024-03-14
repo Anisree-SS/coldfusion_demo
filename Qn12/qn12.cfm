@@ -12,7 +12,7 @@ There is no primary key & numberic column in this table. Create a page with text
 User can enter numeric value less than 10. While click on submit, you should show all data from table 
 as well as show Query’s nth row first name column without looping. Here n is value of the user input.
     </h6>
-    <form action="qn12.cfm" method="post">
+    <form action="" method="post">
         Enter a number less than 10: <input type="number" name="n" required>
         <input type="submit" value="Submit">
     </form>

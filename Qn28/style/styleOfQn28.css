@@ -18,6 +18,12 @@ input{
     margin: 10px;
 }
 
-table{
+table, th, td {
     border: 1px solid black;
+    padding:5px;
+}
+
+button{
+    padding: 5px;
+    margin: 10px;
 }

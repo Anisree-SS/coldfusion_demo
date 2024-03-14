@@ -12,21 +12,19 @@
     <h6>simple CMS</h6>
     <div>
         <form action="login.cfm" method="post">
-            <label>User name:
+            <label>User name:</label>
                 <input type="text" name="userName" id="name">
-            </label>
             <br>
             <br>
-            <label>Password
+            <label>Password  </label>
                 <input type="password" name="passwords" id="password">
-            </label>
             <br>
             <br>
             <input type="submit" value="submit">
         </form>
     </div>
     <div>
-    <cfif structKeyExists(form,"userName") and structKeyExists(form,"passwords")>
+        <cfif structKeyExists(form,"userName") and structKeyExists(form,"passwords")>
             <cfinvoke component="components/qn28" method="checkAccess">
                 <cfinvokeargument name="userName" value="#form.userName#">
                 <cfinvokeargument name="passwords" value="#form.passwords#">
