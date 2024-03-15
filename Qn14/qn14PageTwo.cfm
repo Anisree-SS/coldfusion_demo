@@ -1,34 +1,28 @@
+<cfapplication name="MyApplication" sessionmanagement="yes">
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/styleFor14.css">
     <title>document</title>
   </head>
   <body>
-    
-    <cfset thumpnailObj = createObject("component", "components/forQn14").thumpnail()>
-    <cfif thumpnailObj.recordCount GT 0>
-      <cfset local.ids = thumpnailObj>
-      <center>
-          <table>
-              <tr>
-              <th>Image Name</th>
-              <th>Image</th>
-              </tr>
-              
-              <tr>
-                  <td>#imgname#</td>
-                  <td>
-                      <form action="qn14PageThree.cfm" method="post"> 
-                          <input type="hidden" name="ids" value="#thumpnailObj#">
-                          <button action="" method="post"><img width="20" height="20" src="../Qn14/assets/#imgpath#">
-                          </button>
-                      </form>
-                  </td>  
-              </tr>
-          </table>
-      </center>
-    </cfif>
+  <div>
+  <h4>Page List</h4>
+ </div>
+ <div>
+    <cfset local.imgId=URL.imgId>
+    <cfquery name = "displayPage" datasource = "demo">
+      SELECT imgName FROM imgTable
+      where imgId=<cfqueryparam value="#local.imgId#" cfsqltype="cf_sql_varchar">
+    </cfquery>
+
+    <cfoutput query="displayPage">
+      <a href="qn14PageThree.cfm?imgId=#imgId#">#imgName#</a>
+      <img width="20" height="20" src="../Qn14/assets/#imgName#">
+      <br><br>
+    </cfoutput>
+  </div>
   </body>
 </html>

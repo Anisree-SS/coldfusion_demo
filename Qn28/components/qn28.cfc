@@ -64,25 +64,42 @@
 
     <!---Edit data function--->
 
-
-    <cffunction name="editData" access="public">
+    <cffunction name="dataEdit" access="public">
         <cfargument name="titleName" required="true">
         <cfargument name="description" required="true">
-        <cfargument name="id" required="true">
+        <cfargument name="pageId" required="true" >
         <cfquery name="dataCheck" datasource="demo">
             SELECT * FROM pageTable 
-            WHERE pageName = <cfqueryparam value="#arguments.titleName#" cfsqltype="cf_sql_varchar">
+            WHERE pageId = <cfqueryparam value="#idPage#" cfsqltype="cf_sql_integer">
         </cfquery>
         <cfif dataCheck.recordCount>
             <cfquery name="updateData" datasource="demo">
                 UPDATE pageTable SET 
                 pageName = <cfqueryparam value="#arguments.titleName#" cfsqltype="cf_sql_varchar">,
                 description = <cfqueryparam value="#arguments.description#" cfsqltype="cf_sql_varchar">
-                WHERE pageName=<cfqueryparam value="#arguments.titleName#" cfsqltype="cf_sql_varchar">
+                WHERE pageId = <cfqueryparam value="#idPage#" cfsqltype="cf_sql_integer">
             </cfquery>
-            <cfreturn "Data updated successfully">
+            <cfoutput> Data updated successfully</cfoutput>
         <cfelse>
-            <cfreturn "Data is not present">
+            <cfoutput>Data is not present</cfoutput>
+        </cfif>
+    </cffunction>
+
+    <!---delete data function--->
+    <cffunction name="dataDelete" access="remote">
+        <cfargument name="idPage" required="true">
+        <cfquery name="dataCheck" datasource="demo">
+            SELECT * FROM pageTable 
+            WHERE pageId = <cfqueryparam value="#idPage#" cfsqltype="cf_sql_integer">
+        </cfquery>
+        <cfif dataCheck.recordCount>
+            <cfquery name="updateData" datasource="demo">
+                delete from pageTable
+                WHERE pageId = <cfqueryparam value="#idPage#" cfsqltype="cf_sql_integer">
+            </cfquery>
+            <cfoutput> Data deleted successfully</cfoutput>
+        <cfelse>
+            <cfoutput>Data is not present</cfoutput>
         </cfif>
     </cffunction>
 </cfcomponent>

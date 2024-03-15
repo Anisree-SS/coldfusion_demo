@@ -49,7 +49,6 @@
         </cfloop>
 
         <cfset sortedData = structSort(wordCounts, "numeric", "desc")>
-        <cfset sortedData = structSort(wordCounts, "numeric", "desc")>
         <cfset sortedWords=[]>
         <cfloop array="#sortedData#" index="word">
             <cfset arrayAppend(sortedWords, [word, wordCounts[word]])>
