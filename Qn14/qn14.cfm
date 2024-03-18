@@ -1,4 +1,4 @@
-
+<cfapplication name="MyApplication" sessionmanagement="yes">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload Form</title>
     <script src="script/scriptForQn14.js"></script>
-     <link rel="stylesheet" href="./style/styleFor14.css">
+    <link rel="stylesheet" href="./style/styleFor14.css">
 </head>
 <body>
     <h6>Create a form with Image name text box , description text area & Image upload field. User can upload only small
@@ -18,30 +18,22 @@
             <input type="text" id="imageName" name="imageName"><br>
 
             <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="2" cols="20"></textarea><br>
-
+            <textarea id="description" name="description" rows="2" cols="20"></textarea>
+            <br>
             <label for="imageFile">Image Upload</label>
             <input type="file" id="imageFile" name="imageFile" accept=".jpg, .jpeg, .png, .gif" onchange="check()">
             <br>
-        
             <input type="submit" value="Upload Image">
-            <p id="filerror" class="error" ></p>
         </form>
-
-        <cfif structKeyExists(form, "imageName") and structKeyExists(form, "description") and structKeyExists(form, "imageFile")>
-            <cfset local.path = ExpandPath("../Qn14/assets/")>
-
-            <cfif structKeyExists(form, "imageFile")>
-            <cffile action = "upload" 
-            fileField = "form.imageFile" 
-            destination =  "#local.path#"
-            nameConflict = "MakeUnique"
-            allowedextensions=".jpg, .jpeg, .png, .gif">
-
-            <cfset local.image = cffile.clientFile>
-
-            <cfset local.insertq = createObject("component","components/forQn14").init(imgname="#form.imageName#",discription="#form.description#",imageN="#local.image#")>
-            </cfif>
+    </div>
+    
+    <div>
+        <cfif StructKeyExists(form, "imageFile")>
+            <cfinvoke component="components/qn14" method="imgDisplay">
+                <cfinvokeargument name="imageName" value="#form.imageName#">
+                <cfinvokeargument name="description" value="#form.description#">
+                <cfinvokeargument name="imageFile" value="#form.imageFile#">                
+            </cfinvoke>
             <cflocation url="qn14PageTwo.cfm" addtoken="no">
         </cfif>
     </div>

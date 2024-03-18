@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/styleOfQn28.css">
-    
     <title>Document</title>
 </head>
 <body>
@@ -29,7 +28,7 @@
                     <td>#pageId#</td>
                     <td>#pageName#</td>
                     <td><a href="editData.cfm?idPage=#pageId#">Edit</a></td>
-                    <td><a href="dataDelete.cfm">delete</a></td>
+                    <td><a href="components/qn28.cfc?method=dataDelete&idPage=#pageId#">delete</a></td>
                 </tr>
             </cfoutput>
         </table>

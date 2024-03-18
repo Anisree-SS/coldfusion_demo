@@ -30,7 +30,7 @@
                 <ul>
                     <cfloop array="#keyandvalue#" index="word">
                         <cfoutput>
-                        <p>#word[1]#  -  #word[2]#</p>
+                        <p>#word[1]#  (#word[2]#)</p>
                         </cfoutput>
                     </cfloop>
                 </ul>

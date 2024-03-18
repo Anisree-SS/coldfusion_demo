@@ -5,25 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/styleOfQn28.css">
+    
     <title>Document</title>
 </head>
 <body>
     <h2> User Page</h2>
     <div>
+        <cfset local.idPage=URL.idPage>
         <cfquery name = "displayPage" datasource = "demo">
-            SELECT pageId,pageName FROM pageTable
+            SELECT pageName,description FROM pageTable
+            where pageId=<cfqueryparam value="#local.idPage#" cfsqltype="cf_sql_integer">
         </cfquery>
-        <table>
-            <tr>
-                <th>S.No</th>
-                <th>Page Name</th>
-            </tr>
-
             <cfoutput query="displayPage">
-                <tr>
-                    <td>#pageId#</td>
-                    <td><a href="viewPage.cfm?idPage=#pageId#">#pageName#</a></td>
-                </tr>
+                <div>
+                    <h3>#pageName#</h3>
+                </div>
+                <div>
+                    <p>#description#</p>
+                </div>
             </cfoutput>
         </table>
     </div>
