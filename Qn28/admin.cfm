@@ -5,12 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/styleOfQn28.css">
-    <script src="./script/jquery.min.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
-    <h6>
+    <h2>
         Admin Page
-    </h6>
+    </h2>
+    <div>
+        <cfquery name = "displayPage" datasource = "demo">
+            SELECT pageId,pageName FROM pageTable
+        </cfquery>
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Page Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+            <cfoutput query="displayPage">
+                <tr>
+                    <td>#pageId#</td>
+                    <td>#pageName#</td>
+                    <td><a href="editData.cfm?idPage=#pageId#">Edit</a></td>
+                    <td><a href="dataDelete.cfm">delete</a></td>
+                </tr>
+            </cfoutput>
+        </table>
+    </div>
+    <div>
+        <button type="button"><a href="addData.cfm">Add New Data</a></button>
+    </div>
 </body>
 </html>
